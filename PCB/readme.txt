@@ -19,7 +19,6 @@ out there but they work good for me. So if you want Eagle sorry.
 "ESP8266 FT232 RevA.pcb"   
 
 "ESP8266 Wifi RevA.sch"    board and schematic file for the ESP8266 
-"ESP8266 Wifi RevA.pcb"    use a chip antenna
-
-"ESP8266 Wifi RevA2.pcb"    same but using a pcb antenna
+"ESP8266 Wifi RevA1.pcb"   use a chip antenna
+"ESP8266 Wifi RevA2.pcb"   same but using a pcb antenna
 
