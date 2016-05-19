@@ -1,6 +1,0 @@
-gmake: Entering directory `/cygdrive/c/Dev1/Espressif/yifi_httpd'
-"CC user/cgi.c"
-"AR build/yifi_httpd_app.a"
-"LD build/yifi_httpd.out"
-"FW Making Bins"
-gmake: Leaving directory `/cygdrive/c/Dev1/Espressif/yifi_httpd'
