@@ -1,3 +1,0 @@
-gmake: Entering directory `/cygdrive/c/Dev1/Espressif/yifi_udp'
-"FW Making Bins"
-gmake: Leaving directory `/cygdrive/c/Dev1/Espressif/yifi_udp'
