@@ -1,0 +1,65 @@
+[Form]
+Top=17
+Left=581
+Height=989
+Width=1172
+InitMax=0
+ForeGround=8413216
+BackGround=10518640
+[Files]
+Filter=Makefile;*.txt;*.c;*.cpp;*.h;*.hpp;
+[Editor]
+TabSize=4
+UseTabs=1
+WordWrap=0
+Gutter=1
+LineNumbers=1
+Leading0s=0
+CodeFolding=0
+AutoIndent=1
+RightMargin=1
+TrimTrailSp=1
+[Project]
+Path=C:\Dev1\ESP8266\examples\tcpclient\user
+Make=[internal make]  
+Compile=..\..\sdk\bin\xcc.exe -c user/*.c  -I..\..\sdk\include -Iinclude -Iuser -Os -ggdb -Wpointer-arith -Wundef -Werror -std=c99 -Wall -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals -D__ets__ -DICACHE_FLASH -Wno-address      
+Tool1Name=espTerminal
+Tool2Name=FSMaker
+Tool3Name=yBrowser
+Tool4Name=
+Tool1=C:\Dev1\Espressif\epsflashy\esploader.exe
+Tool2=C:\Dev1\Espressif\esphttpd\mkespfsimage\espfsMaker.exe
+Tool3=C:\Dev1\dm\client\yBrowserProject1.exe
+Tool4=
+[Filter]
+Mask=Makefile;*.txt;*.c;*.cpp;*.h;*.hpp;
+[Maker]
+Line0=># compile:
+Line1=>echo "Compiling"
+Line2=>..\..\sdk\bin\xgcc.exe
+Line3=>    -c user/*.c
+Line4=>    -I..\..\sdk\include -Iinclude -Iuser
+Line5=>    -Os -ggdb -Wpointer-arith -Wundef -Werror -std=c99 -Wall -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals -D__ets__ -DICACHE_FLASH -Wno-address
+Line6=>#
+Line7=># move object files to build directory:
+Line8=>mv -f *.o build
+Line9=>#
+Line10=># Make archive file:
+Line11=>..\..\sdk\bin\xar.exe cru build/yifi_app.a build/*.o
+Line12=>#
+Line13=># Link
+Line14=>echo "Linking"
+Line15=>..\..\sdk\bin\xgcc.exe
+Line16=>    -L..\..\sdk\lib
+Line17=>    -T..\..\sdk\ld\eagle.app.v6.ld
+Line18=>    -nostdlib -Wl,--no-check-sections -u call_user_start -Wl,-static
+Line19=>    -Wl,--start-group -lc -lgcc -lhal -lpp -lphy -lnet80211 -llwip -lwpa -lmain build/yifi_app.a -Wl,--end-group
+Line20=>    -obuild/yifi.out
+Line21=>#
+Line22=># Make Bins:
+Line23=>echo "Making bins"
+Line24=>..\..\sdk\tools\esptool\esptool.exe -eo build\yifi.out -bo firmware\0x0000_yifi.bin -bs .text -bs .data -bs .rodata -bc -ec
+Line25=>..\..\sdk\bin\xobjcopy.exe --only-section .irom0.text -O binary build\yifi.out firmware\0x4000_yifi.bin
+Line26=>echo "Make done"
+Line27=># End
+Line28=>

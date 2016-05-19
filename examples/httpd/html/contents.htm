@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Contents</title>
+<style>
+body  { background-color: #404040; font-family: sans-serif; }
+#main { background-color: #f0f0f9; border: 2px solid #008080; width: 800px; margin: 0 auto; padding: 20px }
+</style>
+<script src="contents.js"></script> 
+<script>
+var newval = JSON.parse(contmpl);     
+function populate(val) 
+{
+  for(var i = 0; i < 16; i++) {
+	var labid = "can" + (i + 1);  			
+   	document.getElementById(labid).value = val.contents[i].name;  
+  }
+}
+function getcontents() 
+{
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+	if(xhttp.readyState == 4 && xhttp.status >= 200) {
+		var val = JSON.parse(xhttp.responseText);
+		populate(val);	   
+	}
+  }			
+  xhttp.open("GET", "contents.cgi", true);
+  xhttp.setRequestHeader("Accept","text/json");		
+  xhttp.send(null);
+}
+function sendcontents(val) 
+{
+  var xhttp;
+  var params = JSON.stringify(val);
+  xhttp = new XMLHttpRequest();  
+  xhttp.onreadystatechange = function() {
+	if(xhttp.readyState == 4) {
+	    alert("Saved");
+	}
+  }			
+  xhttp.open("POST", "save.cgi", true);
+  xhttp.setRequestHeader("Content-Type", "text/json");
+  xhttp.setRequestHeader("Content-length", params.length);
+  xhttp.setRequestHeader("Connection", "close");
+  xhttp.send(params);			
+}
+function savecontents()
+{
+  for(var i = 0; i < 16; i++) {
+	var labid = "can" + (i + 1);  			
+   	newval.contents[i].name = document.getElementById(labid).value;
+  }
+  sendcontents(newval);
+}
+</script>
+</head>
+<body>
+<div id="main">
+<h1>Manage Contents</h1>
+<hr>
+<p>view or modify the saved contents of the Flash.
+</p>
+<b>File 01:</b>&nbsp; <input type="text" id="File01" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol01" value=""><br>
+<b>File 02:</b>&nbsp; <input type="text" id="File02" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol02" value=""><br>
+<b>File 03:</b>&nbsp; <input type="text" id="File03" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol03" value=""><br>
+<b>File 04:</b>&nbsp; <input type="text" id="File04" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol04" value=""><br>
+<b>File 05:</b>&nbsp; <input type="text" id="File05" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol05" value=""><br>
+<b>File 06:</b>&nbsp; <input type="text" id="File06" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol06" value=""><br>
+<b>File 07:</b>&nbsp; <input type="text" id="File07" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol07" value=""><br>
+<b>File 08:</b>&nbsp; <input type="text" id="File08" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol08" value=""><br>
+<b>File 09:</b>&nbsp; <input type="text" id="File09" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol09" value=""><br>
+<b>File 10:</b>&nbsp; <input type="text" id="File10" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol10" value=""><br>
+<b>File 11:</b>&nbsp; <input type="text" id="File11" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol11" value=""><br>
+<b>File 12:</b>&nbsp; <input type="text" id="File12" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol12" value=""><br>
+<b>File 13:</b>&nbsp; <input type="text" id="File13" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol13" value=""><br>
+<b>File 14:</b>&nbsp; <input type="text" id="File14" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol14" value=""><br>
+<b>File 15:</b>&nbsp; <input type="text" id="File15" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol15" value=""><br>
+<b>File 16:</b>&nbsp; <input type="text" id="File16" value="">&nbsp;<b>Sector:</b>&nbsp;<input type="text" id="vol16" value=""><br>
+<br><br>
+<button onclick="getcontents()" style="width:100px;" >Retreive</button>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="savecontents()" style="width:100px;" >Save</button>
+<p>
+<hr>
+<a href="index.htm">Home</a>&nbsp;&nbsp;
+<a href="contents.cgi">json</a>
+<a href="dbfile">show db</a>&nbsp;&nbsp;
+</p>
+</div>
+</body>
+</html>

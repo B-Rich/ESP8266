@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="images/favicon.ico">
+<title>yifi</title>
+<style>
+body    { background-color: #707070; font-family: sans-serif; }
+#topbar { background-color: #001010; border: 2px solid #000000; width: 800px; margin:0px; auto; padding: 20px }
+#main   { background-color: #ffffff; border: 2px solid #000000; width: 800px; margin:0px; auto; padding: 20px }
+.config { background-color: #E0E0E0; border-style:none; padding: 5px;  border-radius: 8px; margin:10px;  }
+</style>
+<script>
+function RBFFlash()
+{
+ var xhttp;
+ var url = "http://192.168.1.11/rbflash.cgi";
+ var params = "RBF=F"; 
+ xhttp = new XMLHttpRequest();
+ xhttp.onreadystatechange = function() {
+  if(xhttp.readyState == 4) {
+    location.href = "load.htm";
+  }
+ }
+ xhttp.open("POST", url, true);
+ xhttp.setRequestHeader("Content-Type", "text/plain");
+ xhttp.setRequestHeader("Content-length", params.length);
+ xhttp.setRequestHeader("Connection", "close");
+ xhttp.send(params);
+}
+function load_rbf(HexText)  // load the file
+{
+ var xhttp;
+ var url = "http://192.168.1.11/loadrbf.cgi";
+// var params = "RBF=" + HexText;
+ var params = HexText;
+ xhttp = new XMLHttpRequest();
+// xhttp.onreadystatechange = function() {
+//  if(xhttp.readyState == 4 && xhttp.) {
+//    location.href = "load.htm";
+//  }
+// }
+ xhttp.open("POST", url, true);
+ xhttp.setRequestHeader("Content-Type", "text/plain");
+// xhttp.setRequestHeader("Content-length", params.length);
+// xhttp.setRequestHeader("Connection", "close");
+ xhttp.send(params);
+}
+function bin2hex(bin)
+{
+  var len = bin.length;
+  var chr = '';
+  var hex = '';
+  for(var i = 0; i < len; ++i) {
+    chr = bin.charCodeAt(i).toString(16);
+    hex += chr.length < 2 ? '0' + chr : chr;
+  }
+  return hex;
+}
+function loadRBFFile()  // load RBF file 
+{
+ var fileNameToLoad = document.getElementById("browsefile").value;
+ var fileToLoad = document.getElementById("browsefile").files[0];
+ var fileReader = new FileReader();
+ fileReader.onload = function(fileLoadedEvent) {
+//  var bin = fileLoadedEvent.target.result
+//  var HexText = bin2hex(bin);
+  var HexText = fileLoadedEvent.target.result
+  load_rbf(HexText);
+ }
+ fileReader.readAsText(fileToLoad, "UTF-8");	
+}	
+</script>
+</head>
+<body>
+<div id="topbar" style=" margin-bottom:-20px;">
+<h1 style="color:#FFFEEF; ">yifi Cloud FPGA </h1>
+<img src="images/x86.png" style="float:right; margin-top:-60px;"> 
+</div>
+<div id="main">
+<a href="/wifi"  style="text-decoration:none;"><button type="button" value="M" style="float:right; margin-top:-2px" ><b>Connected your Wifi Network</b></button></a>
+<p>Search for available Wifi hot spots to connect to...<br></p>
+<hr><br>
+<div>FPGA RBF File: 
+<input type="file" id="browsefile" style=" width: 500px;">
+<button onclick="loadRBFFile()" style="float:right; width:100px; margin-top:-22px " ><b>Load RBF</b></button>
+</div> 
+<br><br>
+<button onclick="RBFFlash()" style="float:right; width:100px; margin-top:-22px " ><b>RBF Flash</b></button>
+<br><br><br><br>
+<hr>
+<footer>
+<a href="contents.htm">Flash Contents</a>&nbsp;&nbsp;
+<a href="test.htm">Test Page</a>&nbsp;&nbsp;
+<a href="http://ypumaker.azurewebsites.net/">yPUMaker Web Site</a>&nbsp;&nbsp;©&nbsp;2014 This page visited <b>%counter%</b> times.
+</footer>
+</div>
+</body>
+</html>
+
+

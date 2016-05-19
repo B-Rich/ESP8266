@@ -1,0 +1,6 @@
+gmake: Entering directory `/cygdrive/c/Dev1/Espressif/yifi_tcpclient'
+"CC user/user_main.c"
+"AR build/yifi_app.a"
+"LD build/yifi.out"
+"FW Making Bins"
+gmake: Leaving directory `/cygdrive/c/Dev1/Espressif/yifi_tcpclient'

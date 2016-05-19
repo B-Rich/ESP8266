@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="images/favicon.ico">
+<title>Test</title>
+<style>
+body  { background-color: #404040; font-family: sans-serif; }
+#main { background-color: #f0f0f9; border: 2px solid #008080; width: 800px; margin: 0 auto; padding: 20px }
+</style>
+</head>
+<body>
+<div id="main">
+<h1>Debug And Testing</h1><hr>
+<p>Your IP address is: %ipaddr%</p>
+<br><br><br>
+<form method="post" action="led.cgi">
+<b>Test LED:</b>&nbsp;
+<button type="submit" name="led" value="0" style="width:50px">Off</button>&nbsp;
+<button type="submit" name="led" value="1" style="width:50px">On </button>
+&nbsp;(Current state is %ledstate%)
+</form>
+<hr>
+<a href="index.htm">Home</a>&nbsp;&nbsp;<a href="dbfile">Show db</a>
+</div>
+</body>
+</html>

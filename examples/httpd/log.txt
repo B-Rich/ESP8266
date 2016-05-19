@@ -1,0 +1,4 @@
+Compiling 
+Linking 
+Making bins 
+Make done 
