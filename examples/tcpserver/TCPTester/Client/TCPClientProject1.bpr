@@ -28,8 +28,8 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="TCPClientProject1.cpp"/>
-    <INCLUDEPATH value="..\..\..\..\Ethernet\TCPTester\Client;..\;Client;$(BCB)\include;$(BCB)\include\vcl"/>
-    <LIBPATH value="..\..\..\..\Ethernet\TCPTester\Client;..\;Client;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <INCLUDEPATH value="$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
@@ -85,7 +85,41 @@ ProductVersion=1.0.0.0
 Comments=
 
 [Excluded Packages]
-c:\program files\borland\cbuilder6\Bin\dclite60.bpl=Borland Integrated Translation Environment
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\StripCharterPackage1.bpl=StripCharterPackage1
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\BrowserControl.bpl=Mozilla Browser
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\tmsxlsc6.bpl=TAdvStringGrid Excel support
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\vsfb6.bpl=TMS Skin Factory
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\StripChartPackage1.bpl=StripChart
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\RotateLabelPackage.bpl=Browse Data Bases
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\BannerPackage1.bpl=Browse Data Bases
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\Shaper.bpl=Form Shaper
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\ShapeForm.bpl=Shape Window
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\SizerPanel.bpl=Sizeable Panel
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\StrechSwitchComp.bpl=Stretchey Switch
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\SwitchComponent.bpl=Meta Switch
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\TogglePackage1.bpl=Toggle Switch
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\DialComp.bpl=Dial Component
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\LEDPanel.bpl=LED Panel
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\MIDIFILEIO.bpl=MIDI File IO
+c:\program files (x86)\borland\cbuilder6\Projects\Bpl\SevenSegmentPackage.bpl=Seven Segment Display
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=$(BCB)\include;$(BCB)\include\vcl
+Item1=..\..\..\..\Ethernet\TCPTester\Client;..\;Client;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=2
+Item0=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item1=..\..\..\..\Ethernet\TCPTester\Client;..\;Client;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
 
 [Debugging]
 DebugSourceDirs=$(BCB)\source\vcl
@@ -106,5 +140,10 @@ RemoteDebug=0
 ShowInfoMsgs=0
 LinkDebugVcl=0
 LinkCGLIB=0
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
   </IDEOPTIONS>
 </PROJECT>
