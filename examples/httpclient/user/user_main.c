@@ -34,8 +34,8 @@ void connect_stap_mode(void)
      if(wifi_station_get_config(&stconfig))  {
          os_memset(stconfig.ssid,     0, sizeof(stconfig.ssid));
          os_memset(stconfig.password, 0, sizeof(stconfig.password));
-         os_sprintf((char *)stconfig.ssid,     "%s", "ZQ097");
-         os_sprintf((char *)stconfig.password, "%s", "antiquark13");
+         os_sprintf((char *)stconfig.ssid,     "%s", "BSSID");
+         os_sprintf((char *)stconfig.password, "%s", "password");
          if(!wifi_station_set_config(&stconfig)) {
              os_printf("ESP8266 not set station config!\r\n");
         }
